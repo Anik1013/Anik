@@ -1,34 +1,51 @@
-// Get references to the button and like count elements
 const likeButton = document.getElementById('likeButton');
 const likeCount = document.getElementById('likeCount');
+const commentForm = document.getElementById('commentForm');
+const commentInput = document.getElementById('comment');
+const commentsSection = document.getElementById('comments');
 
-// Initialize the like count
+// Initialize like count and comments array
 let currentLikes = 0;
+const comments = [];
 
 // Function to update the like count display
 function updateLikeCount() {
     likeCount.textContent = currentLikes;
 }
 
+// Function to add a new comment
+function addComment(text) {
+    const commentElement = document.createElement('div');
+    commentElement.textContent = text;
+    commentsSection.appendChild(commentElement);
+}
+
 // Function to handle the "like" button click event
 function toggleLike() {
     if (likeButton.textContent === 'Like') {
-        // User clicked to like the content
         currentLikes++;
         likeButton.textContent = 'Unlike';
     } else {
-        // User clicked to unlike the content
         currentLikes--;
         likeButton.textContent = 'Like';
     }
-
-    // Update the like count display
     updateLikeCount();
 }
 
-// Attach the toggleLike function to the button's click event
+// Function to handle comment submission
+function handleCommentSubmit(event) {
+    event.preventDefault();
+    const commentText = commentInput.value;
+    if (commentText.trim() !== '') {
+        comments.push(commentText);
+        addComment(commentText);
+        commentInput.value = '';
+    }
+}
+
+// Attach event listeners
 likeButton.addEventListener('click', toggleLike);
+commentForm.addEventListener('submit', handleCommentSubmit);
 
 // Initial display of like count
 updateLikeCount();
-
