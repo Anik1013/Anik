@@ -15,3 +15,53 @@ li{color : black;}
 }
 
 aside{float: right;}
+/* Style for the "Like" button */
+#likeButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#likeButton:hover {
+    background-color: #0056b3;
+}
+
+/* Style for the comment section */
+#comments {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#commentForm {
+    margin-top: 20px;
+}
+
+#comment {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#commentForm button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#commentForm button[type="submit"]:hover {
+    background-color: #0056b3;
+}
